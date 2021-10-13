@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 17:46:18 by rgelin            #+#    #+#             */
-/*   Updated: 2021/10/13 17:09:00 by rgelin           ###   ########.fr       */
+/*   Updated: 2021/10/13 19:02:33 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void	init_image(t_mlx *mlx, t_img *img)
 		|| !mlx->img_char_up || !mlx->img_char_left || !mlx->img_char_rigth
 		|| !mlx->img_collectible || !mlx->img_exit)
 	{
-		write(2, "Error loading sprite\n", 21);
+		write(2, "Error\nCouldn't load sprites\n", 28);
 		free_mlx(mlx);
 		exit(EXIT_FAILURE);
 	}

@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 18:19:04 by rgelin            #+#    #+#             */
-/*   Updated: 2021/10/13 17:10:40 by rgelin           ###   ########.fr       */
+/*   Updated: 2021/10/13 18:37:52 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,15 +38,13 @@ static void	move_player(int keycode, t_mlx *mlx)
 {
 	mlx_do_key_autorepeaton(mlx->mlx);
 	if (move_up_down(keycode, mlx) && move_left_rigth(keycode, mlx))
-	{
 		printf("%d\n", mlx->nb_move);
-		if (mlx->map[mlx->pos_player_y][mlx->pos_player_x] == 'C')
-		{
-			mlx->map[mlx->pos_player_y][mlx->pos_player_x] = '0';
-			mlx->collectible--;
-		}
-		render_image(mlx);
+	if (mlx->map[mlx->pos_player_y][mlx->pos_player_x] == 'C')
+	{
+		mlx->map[mlx->pos_player_y][mlx->pos_player_x] = '0';
+		mlx->collectible--;
 	}
+	render_image(mlx);
 }
 
 int	play(int keycode, t_mlx *mlx)

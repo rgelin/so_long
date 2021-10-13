@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 18:19:04 by rgelin            #+#    #+#             */
-/*   Updated: 2021/10/13 17:06:47 by rgelin           ###   ########.fr       */
+/*   Updated: 2021/10/13 18:33:59 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ static void	end_game(t_mlx *mlx)
 
 static void	render_image(t_mlx *mlx, char *move)
 {
+	(void)move;
 	mlx_clear_window(mlx->mlx, mlx->mlx_window);
 	put_background(mlx);
 	put_map_window(mlx);
@@ -63,16 +64,15 @@ static void	move_player(int keycode, t_mlx *mlx)
 	move = NULL;
 	nb_move_str = NULL;
 	mlx_do_key_autorepeaton(mlx->mlx);
-	if (move_up_down(keycode, mlx) && move_left_rigth(keycode, mlx))
+	move_up_down(keycode, mlx);
+	move_left_rigth(keycode, mlx);
+	if (mlx->map[mlx->pos_player_y][mlx->pos_player_x] == 'C')
 	{
-		put_move_str(mlx, &move, &nb_move_str);
-		if (mlx->map[mlx->pos_player_y][mlx->pos_player_x] == 'C')
-		{
-			mlx->map[mlx->pos_player_y][mlx->pos_player_x] = '0';
-			mlx->collectible--;
-		}
-		render_image(mlx, move);
+		mlx->map[mlx->pos_player_y][mlx->pos_player_x] = '0';
+		mlx->collectible--;
 	}
+	put_move_str(mlx, &move, &nb_move_str);
+	render_image(mlx, move);
 	free(move);
 }
 

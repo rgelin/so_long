@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/11/22 15:54:07 by rgelin            #+#    #+#             */
-/*   Updated: 2021/10/13 16:50:34 by rgelin           ###   ########.fr       */
+/*   Updated: 2021/10/13 18:32:14 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ static char	*ft_putnbr_str(int n)
 	}
 	if (n == 0)
 	{
-		res[0] = 0 + '0';
+		res[0] = '0';
 		return (res);
 	}
 	while (n > 0)
@@ -81,8 +81,6 @@ char	*ft_itoa(int nb)
 {
 	char	*res;
 
-	if (!nb)
-		return (NULL);
 	res = ft_putnbr_str(nb);
 	if (!res)
 		return (NULL);

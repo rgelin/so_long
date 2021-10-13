@@ -6,7 +6,7 @@
 /*   By: rgelin <rgelin@student.s19.be>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/12 17:08:07 by rgelin            #+#    #+#             */
-/*   Updated: 2021/10/13 17:10:02 by rgelin           ###   ########.fr       */
+/*   Updated: 2021/10/13 18:56:39 by rgelin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static void	get_nb_map_line(t_mlx *mlx, char *av[])
 	fd = open(av[1], O_RDONLY);
 	if (fd == -1)
 	{
-		write(2, "Error: couldn't open file.\n", 27);
+		write(2, "Error\nCouldn't open file.\n", 26);
 		free_mlx(mlx);
 		exit(EXIT_FAILURE);
 	}
@@ -45,7 +45,7 @@ void	get_map(t_mlx *mlx, char *av[])
 	mlx->map = (char **)malloc(sizeof(char *) * mlx->map_heigth);
 	if (!mlx->map)
 	{
-		write(2, "Error: couldn't load map.\n", 26);
+		write(2, "Error\nCouldn't load map.\n", 25);
 		free_mlx(mlx);
 		exit(EXIT_FAILURE);
 	}
